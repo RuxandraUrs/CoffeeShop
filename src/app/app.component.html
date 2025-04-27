@@ -1,0 +1,6 @@
+<app-header></app-header>
+
+<app-search-result *ngIf="search.resultSignal() as p"  [product]="p"></app-search-result>
+
+<router-outlet></router-outlet>
+

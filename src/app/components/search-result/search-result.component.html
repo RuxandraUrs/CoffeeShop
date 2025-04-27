@@ -1,0 +1,14 @@
+<div class="search-wrap">
+
+  <h2 class="result-title">Search&nbsp;result: </h2>
+
+  <article class="card">
+    <img [src]="product.img" [alt]="product.name">
+
+    <div class="info">
+      <h4>{{ product.name }}</h4>
+      <p class="desc">{{ product.desc }}</p>
+      <p class="price">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</p>
+    </div>
+  </article>
+</div>

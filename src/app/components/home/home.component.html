@@ -1,0 +1,5 @@
+<section id="main"><app-main></app-main></section>
+<app-search-result *ngIf="search.resultSignal() as p" [product]="p"></app-search-result>
+<section id="coffee"><app-coffee-list></app-coffee-list></section>
+<section id="dessert"><app-dessert-list></app-dessert-list></section>
+<section id="footer"><app-footer></app-footer></section>

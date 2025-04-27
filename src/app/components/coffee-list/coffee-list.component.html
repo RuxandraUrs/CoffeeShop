@@ -1,0 +1,24 @@
+<section class="special-coffee">
+  <h2 class="section-title">Our Special Coffee</h2>
+
+  <button class="nav-btn prev" (click)="scrollLeft()">‹</button>
+  <button class="nav-btn next" (click)="scrollRight()">›</button>
+
+  <div class="cards-track" #track>
+    @for (c of coffees; track c) {
+    <div class="coffee-card" >
+        
+      <div class="img-wrapper">
+        <img [src]="c.img" [alt]="c.name">
+      </div>
+
+      <h3 class="name">{{ c.name }}</h3>
+      <p  class="desc">{{ c.desc }}</p>
+
+      <div class="bottom">
+        <span class="price">{{ c.price | currency:'USD':'symbol':'1.2-2' }}</span>
+        <button class="order-btn" (click)="order(c)">Order&nbsp;Now</button>
+      </div>
+    </div>}
+  </div>
+</section>

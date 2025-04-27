@@ -1,0 +1,24 @@
+<section class="special-dessert">
+  <h2 class="section-title">Our Special Dessert</h2>
+
+  <button class="nav-btn prev" (click)="scrollLeft()">‹</button>
+  <button class="nav-btn next" (click)="scrollRight()">›</button>
+
+  <div class="cards-track" #track>
+    @for (d of desserts; track d) {
+    <div class="dessert-card">
+
+      <div class="img-wrapper">
+        <img [src]="d.img" [alt]="d.name">
+      </div>
+
+      <h3 class="name">{{ d.name }}</h3>
+      <p  class="desc">{{ d.desc }}</p>
+
+      <div class="bottom">
+        <span class="price">{{ d.price | currency:'USD':'symbol':'1.2-2' }}</span>
+        <button class="order-btn" (click)="order(d)">Order&nbsp;Now</button>
+      </div>
+    </div>}
+  </div>
+</section>

@@ -1,0 +1,16 @@
+<div class="dialog-backdrop" (click)="close.emit()"></div>
+
+<div class="dialog">
+  <h3>Your order:</h3>
+
+  <ul>
+    <li *ngFor="let n of productNames">{{ n }}</li>
+  </ul>
+
+  <p>This is all you want to buy?</p>
+
+  <div class="actions">
+    <button class="btn ghost"  (click)="close.emit()">Close</button>
+    <button class="btn primary" (click)="buy.emit()">Buy</button>
+  </div>
+</div>

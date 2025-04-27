@@ -1,0 +1,79 @@
+$beige  : #dcd5c4;
+$accent : #1a1a1a;
+$font   : 'Poppins', sans-serif;
+
+.site-footer {
+  font-family: $font;
+  color: $accent;
+}
+
+.cta {
+  background: $beige;
+  position: relative;
+  overflow: hidden;           
+
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 180px;             
+    background: url('/assets/img/beans.jpg') center/cover repeat;
+  }
+  &::before { left: 0;  }
+  &::after  { right: 0; }
+
+  .cta-inner {
+    padding: 4rem 1rem 3.5rem;
+    max-width: 680px;
+    margin: 0 auto;           
+    text-align: center;
+    position: relative;       
+    z-index: 1;
+
+    h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+    }
+
+    .cta-btn {
+      background: $accent;
+      color: #fff;
+      border: none;
+      padding: 0.9rem 2.5rem;
+      border-radius: 9999px;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .25s;
+
+      &:hover { background: lighten($accent, 10%); }
+    }
+
+    .social-inline {
+      margin-top: 2.25rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+
+      button {
+        background: $accent;
+        border: none;
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        display: grid; place-items: center;
+        cursor: pointer;
+        transition: background .25s;
+
+        i { color: #fff; font-size: 1.1rem; }
+
+        &:hover { background: lighten($accent, 10%); }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,25 @@
+<section class="shop-grid">
+
+    <article class="card"
+             *ngFor="let p of shop.productsSignal(); trackBy: trackBy"
+             [class.selected]="shop.selectedSignal().includes(p)"
+             (click)="toggle(p)">
+      <img [src]="p.img" [alt]="p.name">
+      <h4>{{ p.name }}</h4>
+      <p class="price">{{ p.price | currency:'USD':'symbol':'1.2-2' }}</p>
+    </article>
+  
+  </section>
+  
+  <button class="btn order"
+          [disabled]="!shop.selectedSignal().length"
+          (click)="openDialog()">
+    Order&nbsp;Now
+  </button>
+  
+  <app-order-dialog *ngIf="showDialog"
+                    [productNames]="selectedNames"
+                    (close)="closeDialog()"
+                    (buy)="buy()">
+  </app-order-dialog>
+  

@@ -1,0 +1,50 @@
+<section class="auth-wrapper">
+    <h2 *ngIf="!isRegister">Sign in</h2>
+    <h2 *ngIf="isRegister">Create an account</h2>
+  
+    <form (ngSubmit)="handleSubmit()" class="auth-form">
+  
+      <div class="form-control">
+        <label>Username</label>
+        <input [(ngModel)]="username" name="username" required />
+      </div>
+  
+      <div class="form-control">
+        <label>Password</label>
+        <input type="password" [(ngModel)]="password" name="password" required />
+      </div>
+  
+      <ng-container *ngIf="isRegister">
+        <div class="form-control">
+          <label>Gender</label>
+          <select [(ngModel)]="gender" name="gender" required>
+            <option value="" disabled selected>Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+  
+        <div class="form-control">
+          <label>Age</label>
+          <select [(ngModel)]="age" name="age" required>
+            <option value="" disabled selected>Select age</option>
+            <option *ngFor="let a of ages" [value]="a">{{ a }}</option>
+          </select>
+        </div>
+      </ng-container>
+  
+      <button type="submit" class="btn primary">
+        {{ isRegister ? 'Create account' : 'Connect' }}
+      </button>
+    </form>
+  
+    <p class="alt-link">
+      <span *ngIf="!isRegister">I don't have an account</span>
+      <span *ngIf="isRegister">I already have an account</span>
+      –
+      <a (click)="switchMode()">
+        {{ isRegister ? 'Sign in' : 'Create one' }}
+      </a>
+    </p>
+  </section>
+  
